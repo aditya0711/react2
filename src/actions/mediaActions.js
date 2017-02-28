@@ -14,3 +14,11 @@ export const searchMediaAction = (payload) => ({
   type: types.SEARCH_MEDIA_REQUEST,
   payload
 });
+export const selectListProducts = () => ({
+  type: types.GET_LIST_OF_PRODUCTS
+});
+
+export const addProductAction = (product) => ({
+  type: types.ADD_PRODUCT,
+  product
+})

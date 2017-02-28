@@ -38,3 +38,40 @@ export const flickrImages = (searchQuery) => {
       }));
     });
 };
+
+export const getListOfProducts = () => {
+  const API_URL_GET_PRODUCTS = 'http://localhost:3001/api/v1/product';
+  return fetch(API_URL_GET_PRODUCTS)
+    .then(response => {
+      console.log("ListOfAllProductAPI: " +  JSON.stringify(response));
+      return response.json()
+    })
+    .then(json=> {
+      return json.data.products;
+    })
+}
+export const getProduct = (productID) => {
+  const API_URL_GET_PRODUCT = 'http://localhost:3001/api/v1/product/' + productID;
+  return fetch(API_URL_GET_PRODUCT)
+    .then(response => {
+      return response.json()
+    })
+    .then(json=> {
+      console.log(JSON.stringify(json));
+      return json.suc
+      //return json.products
+    })
+}
+
+export const addProduct = (product) => {
+  //add product params.
+  const API_URL_ADD_PRODUCT = 'http://localhost:3001/api/v1/product/addProduct';
+  return fetch(API_URL_ADD_PRODUCT)
+    .then(response => {
+      return response.json()
+    })
+    .then(json=> {
+      console.log(JSON.stringify(json));
+      return json.data.products;
+    })
+}

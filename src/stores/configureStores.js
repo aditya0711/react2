@@ -7,6 +7,7 @@ const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   return {
     ...createStore(rootReducer,
+      window.devToolsExtension ? window.devToolsExtension() : f => f,
       applyMiddleware(sagaMiddleware)),
     runSaga: sagaMiddleware.run(rootSaga)
   };

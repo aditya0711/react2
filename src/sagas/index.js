@@ -1,6 +1,11 @@
 import { fork } from 'redux-saga/effects';
 import watchSearchMedia from './watchers';
+import watchGetProducts from './watchers';
 
+// Here, we register our watcher saga(s) and export as a single generator
+// function (startForeman) as our root Saga.
 export default function* startForman() {
   yield fork(watchSearchMedia);
+  yield fork(watchGetProducts);
 }
+

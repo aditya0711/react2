@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import {
   selectImageAction, searchMediaAction,
-  selectVideoAction
+  selectVideoAction, selectListProducts
 } from '../actions/mediaActions';
 import PhotosPage from '../components/PhotosPage';
 import VideosPage from '../components/VideosPage';
@@ -19,6 +19,7 @@ export class MediaGalleryPage extends Component {
 
   componentDidMount() {
     this.props.dispatch(searchMediaAction('rain'));
+    this.props.dispatch(selectListProducts('hello'));
   }
 
   handleSelectImage(selectedImage) {
@@ -87,5 +88,4 @@ const mapStateToProps = ({ images, videos }) => ({
 });
 
 /* connect method from react-router connects the component with redux store */
-export default connect(
-  mapStateToProps)(MediaGalleryPage);
+export default connect(mapStateToProps)(MediaGalleryPage);
